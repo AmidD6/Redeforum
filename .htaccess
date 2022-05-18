@@ -1,0 +1,15 @@
+RewriteEngine on
+RewriteBase /
+Options All -Indexes
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^resource/(.*)$ resource/$1 [L]
+RewriteRule ^catalog/(.*)$ catalog/$1 [L]
+RewriteRule ^.*$ [NC,L]
+RewriteRule ^.*$ index.php [NC,L]
+
+php_value max_execution_time 3000
+php_value max_input_time 3000
+php_value upload_max_filesize 3000M
+php_value post_max_size 3000M
